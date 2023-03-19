@@ -1,0 +1,13 @@
+//criando a função
+function whatIsInAName(collection, source){
+    const sourceKeys = Object.keys(source) // listo as chaves do objeto (por exemplo: nome)
+
+    let filtro = collection.filter(obj => sourceKeys //filtra a coleção com os itens que passam nas condições, nesse caso para cada chave
+        .every(key => obj.hasOwnProperty(key) &&obj[key] ===source[key]))//para cada chave, o objeto anterior(a collection) tem a propriedade key, nesse caso as sourceKeys, e o valor da chave (obj[key] seja igual ao valor do objeto fornecido na source.)
+    console.log(filtro) // assegurando o resultado com a visualização
+    return filtro
+}
+// chamando a função
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" },{ first: "Tybalt", last: "Oliveira" }], { last: "Capulet" ,first: "Tybalt"});
+
+//resultado do exercicio copiado do site freecodecamp com anotaçoes para aprendizado
