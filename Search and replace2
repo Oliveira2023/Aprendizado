@@ -1,0 +1,25 @@
+function myReplace(str, before, after) {
+
+    function applyCasing(source, target) { //arg source = before e arg target = after
+      
+      var targetArr = target.split("");// separa as palavras em array de letras
+      var sourceArr = source.split("");
+      
+      for (var i = 0; i < Math.min(targetArr.length, sourceArr.length); i++) { // faz um for, o tamanho da iteração será a menor palavra
+
+        if (/[A-Z]/.test(sourceArr[i])) { //testa se cada letra da palavra inicial é maiuscula
+          targetArr[i] = targetArr[i].toUpperCase();// se for coloca a letra equivalente da substituta em maiuscula também
+        }
+        
+        else targetArr[i] = targetArr[i].toLowerCase(); // se não for maiuscula, então coverte as letras pra minuscula da palavra substituta.
+      }
+      
+      return targetArr.join(""); // retorna as letras unidas novamente
+    }
+  
+    
+    return str.replace(before, applyCasing(before, after));//retorna já fazendo a substuição, o segundo argumento tem o retorno dos dados tratados na função.
+  }
+  
+  // test here
+  myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
