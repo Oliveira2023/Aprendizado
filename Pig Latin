@@ -12,4 +12,4 @@ function translatePigLatin(str){
         console.log(newStr)
         return newStr
 }
-translatePigLatin("const");
+translatePigLatin("const")
