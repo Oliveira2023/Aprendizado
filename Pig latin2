@@ -1,0 +1,22 @@
+function translatePigLatin(str){
+    var pigLatin = '' //cria variável para nova formação da palavra
+    var regex = /[aeiou]/gi //filtro para encontrar as vogais
+    if (str[0].match(regex)){ //se a primeira letra é uma vogal
+        pigLatin = str + "way" // concatena a string com "way" no final
+    }else if(str.match(regex) === null) { // se for nulo é porque não encontrou nenhuma vogal
+        pigLatin = str +"ay" // neste caso concatena o "ay" no final
+    }else{ //agora no caso das consoantes
+        var vowelIndice = str.indexOf(str.match(regex)[0]) //identificacão do indice 
+        //str.match(regex) retorna todas as vogais encontradas, mas como quero saber da primeira adiciono[0]
+        //agora conhecendo a primeira vogal busco o indice desta vogal na string str.indexOf(da primeira vogal)
+        pigLatin = str.substring(vowelIndice) + str.substring(0,vowelIndice) + 'ay' //substring seleciona uma parte da string através do indice inicial e final..
+        //então neste caso, foi extraida:
+        // str.substring(vowelIndice) : a parte da string a partir da primeira vogal
+        // str.substring(0,vowelIndice) : concatenada com as consoantes do inicio + "ay"
+    }
+    console.log(pigLatin)//mostro na tela pra testar
+    return pigLatin // retorno da string
+    }
+
+// chama a função
+translatePigLatin("consonant");
