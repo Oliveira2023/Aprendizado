@@ -1,0 +1,14 @@
+function myReplace(str, before, after) {
+    if (str.indexOf(before)<0){console.log("não encontrada a palavra anterior")}
+    let index = str.indexOf(before) //encontra o index onde a palavra anterior esta.
+    if (str[index] === str[index].toUpperCase()){ //verifica se aquela letra naquele index é igual a mesma letra maiuscula
+        //nesse caso modifica a letra depois(after) para letra maiuscula
+        after = after.charAt(0).toUpperCase() + after.slice(1) //charAt(0)retorna a letra do indice indicado em after, no caso a primeira letra e concatena com a mesma after começando da segunda letra(index(1))
+    }else{
+        after = after.charAt(0).toLowerCase() +after.slice(1) //se a letra for minuscula, então coloca a letra da palavra seguinte em minuscula
+    }
+    str = str.replace(before, after)// usa replace para substituir a palavra anterior pela proxima.
+    console.log(str)
+  }
+  
+  myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped");
