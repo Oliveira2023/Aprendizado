@@ -13,7 +13,7 @@ function whatIsInAName(collection, source){// a função tem 2 argumentos
         return true // retorna true para os itens que foram iguais ou seja que passaram do if.
     })
     console.log(res) //visualizo para confirmar se ok com o retorno
-    return res //retorna o objeto filtrado
+    return res; //retorna o objeto filtrado
 
 }
 // chamo a função
