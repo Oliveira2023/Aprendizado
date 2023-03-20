@@ -1,0 +1,15 @@
+function translatePigLatin(str){
+    let consoanteRegex = /^[^aeiou]+/; //cria filtro para palavras que não começam ou não contenham com vogais
+    let consoantes = str.match(consoanteRegex) //a variável recebe as palavras que começam com  consoantes ou tem mais letras consoantes ou são todas consoantes
+    
+    console.log(consoantes)
+    let newStr = 
+        consoantes !== null? str // if ternario
+        .replace(consoanteRegex, '') // substituo a consoante inicial por nada
+        .concat(consoantes) //concateno a consoante com ay
+        .concat('ay')
+        :str.concat('way') //caso contrario(nesse caso começa com vogal, concateno com 'way')
+        console.log(newStr)
+        return newStr
+}
+translatePigLatin("const");
