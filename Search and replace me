@@ -1,0 +1,22 @@
+function myReplace(str, before, after) {
+  let strArr = str.split(' ')//divido a string em 1 array para encontrar a palavra
+  console.log(`[${strArr}]`)
+  let found = strArr.find(elem => elem ===before)//verifico se a palavra é encontrada e se não for retorno a mensagem abaixo e para a execução
+  if(!found) console.log('Verifique a palavra a ser substituida')
+  let maiusc = found[0] ===found[0].toUpperCase()// verifico que a palavra é maiuscula ou minuscula
+  console.log(`é maiuscula:${maiusc}`)// verdadeiro ou falso
+  if(maiusc){ // se for maiuscula
+    after = after[0].toUpperCase() + after.slice(1)//1letra em maiuscula seguida da segunda em frente
+    console.log(after)
+    }else{ // se for minuscula, só garanto que a palavra substituta também será.
+      after = after[0].toLowerCase() + after.slice(1)
+      console.log(`else ${after}`)
+  }
+console.log(str)
+console.log(str.replace(found, after))//verifico o retorno
+return str.replace(found, after)// faço o retorno
+
+  
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
