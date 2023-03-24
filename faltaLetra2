@@ -1,0 +1,24 @@
+function fearNotLetter(str) {
+  let currCharCode = str.charCodeAt(0);// codigo da primeira letra
+  
+  let missing = undefined;
+  let separadas = str.split('')
+  console.log(separadas)
+
+  str
+    .split("")// separa as letras em um array
+    .forEach(letter => {// faz um for, ou seja percorre cada letra do array de letras
+      if (letter.charCodeAt(0) === currCharCode) { //se o codigo da letra inicial for igual ao codigo da letra atual, aumenta o codigo em 1
+        // detalhe que sermpre o charCodeAr(0) sempre vai ser 0 porque a letra vai mudando dentro do array durante o forEach
+        currCharCode++;//o codigo aunenta 1 também, e consequentemente como a letra aumenta na seguinte, se faltar alguma não vai ser igual e entra no else
+      } else {
+        missing = String.fromCharCode(currCharCode);
+        console.log(missing)
+      }
+    });
+
+  return missing;
+}
+
+// test here
+fearNotLetter("abce");
