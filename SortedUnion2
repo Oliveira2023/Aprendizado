@@ -1,0 +1,11 @@
+function uniteUnique(arr){
+console.log([...arguments].flat())// verifico se o flat uniu o cj de arrays do argumento
+let flatArgs = [...arguments].flat()// crio uma variável para receber os argumentos unidos pelo flat.
+console.log(flatArgs.filter((item,ind, flatArgs) => flatArgs.indexOf(item) === ind))//filtro o array unido de forma que eu tenho (item, indice, arr) => indeof(por exemplo "1" (===)é igual ao indice do item)
+//quando encontra o index of do numero 1 por exemplo, o index vai ser 0, nesse caso mantém o numero, mas se no segundo numero 1, o indexof dele vai ser 0, mas o index o item atual não será 1 porque o indexOf retorna o indice do primeiro item encontrado.
+//console.log(flatArgs)
+let res = flatArgs.filter((item,ind, flatArgs) => flatArgs.indexOf(item) === ind)//só implemento o que havia colocado no console pra analise na variável res
+return res// retorno o resultado da variavel res que é o array filtrado.
+  
+} 
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
