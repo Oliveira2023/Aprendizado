@@ -1,0 +1,20 @@
+function uniteUnique(arr) {
+const args = [...arguments]; // coloca os argumentos dentro de uma variável
+console.log(args)// coloco no console para ver os argumentos
+const result = [] // cria uma variavel para colocar o resultado da função, que é um unico array sem repetição de numeros
+for (let i=0; i<args.length;i++){// faz um for para percorrer os argumentos
+  for (let j =0; j<args[i].length;j++){// faz outro for para percorrer cada argumento separado no for anterior
+    if(!result.includes(args[i][j])){//se result não incluir o argumento[i][j], ou seja primeito numero do primeiro argumento, segundo numero do primeiro argumento e assim por diante
+      result.push(args[i][j]) // faz um push do numero do argumento
+            console.log('denro do if')
+    }else{
+      console.log(`fora do if, os que já tem no array depois dos primeiros ${args[i][j]}`)//coloco no console só pra ver a função rodando e mostrando os que foram encontrados dentro do novo array
+    }
+    
+  }
+} 
+console.log(result)
+return result // retorno da função
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
