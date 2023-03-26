@@ -1,0 +1,23 @@
+function convertHTML(str){
+  const htlmEntities = {// crio um objeto para verificação desses objetos
+    "&": "&Amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos",
+    "nome": "Luciano"
+  }
+ /*
+    for (let i = 0; i<str.length; i++){
+      if (htlmEntities.match(str[i]))
+      str.replace(str[i],htlmEntities.match(str[i]))
+      console.log(`dentro do if`)
+    }
+   */ 
+   console.log(htlmEntities["<"])// como o item que vai dentro do objeto é uma entidade do HTML parece que tem que mudar a sintaxe de encontrar, se colocar a forma tradicional não funciona, por exemplo htmlEntities.& precisa utilizar as [""]
+   // no case de buscar o nome, como colocado de exemplo acima, funciona com
+  let convertStr = str.replace(/([&<>"'])/g, match => htlmEntities[match])//como estamos fazendo um replace, está percorrendo a str, nesse caso, a arrow function match=> pega cada elemento e joga dentro da busca dentro do objeto htmlEntities. Assim se a letra da string correspondente a letra que é a entidade dentro do objeto.
+  console.log(convertStr)
+  return convertStr
+}
+convertHTML("Dolce & Gabbana");
