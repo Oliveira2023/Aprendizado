@@ -1,0 +1,17 @@
+function sumFibs(num) {
+    let prevNumber = 0;// cria uma variável para o numero anterior
+    let currNumber = 1;// cria uma variável para o numero atual [anterior, atual][0,1]neste caso ja começa com estes numeros
+    let result = 0;// cria uma variável para o resultado
+    while (currNumber <= num) {// enquanto o numero atual for menor que o numero passado como paramentro
+      if (currNumber % 2 !== 0) {// se o numero atual for impar( ou seja se o modulo 2 for diferente de 0)
+        result += currNumber;//resultado será o resultado + numero atual
+      }
+      currNumber += prevNumber;// o numero atual = numero atual + numero anterior
+      prevNumber = currNumber - prevNumber;// o numero anterioor é igual ao numero atual - numero anterior
+    }
+    console.log(result)
+    return result;
+  }
+  
+  // test here
+  sumFibs(1000);
