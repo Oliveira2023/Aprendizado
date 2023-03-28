@@ -1,0 +1,25 @@
+function sumPrimes(num) {
+    let primeNumbers = []
+    for (let j = 2; j<=num;j++){
+        if(selecaoPrimos(j)){// se verdadeiro (true) na função chamada passando os numeros para outra função até o numero passado como argumento
+            primeNumbers.push(j)// entao se verdadeiro, coloca o numero no array dos primos.
+        }
+    }
+    function selecaoPrimos(numero){
+        for (let i = 2; i<numero; i++){
+            
+            if (numero % i == 0) {//se o numero passado do J modulo i desta função for igual a 0 significa que não é um numero primo, porque ele é divisível por outro numero que nao seja ele mesmo ou 1 que já não estão no teste.
+                return false // retorna falso, que não é primo
+            }
+        }
+        return true// retorna true se não tiver nenhum numero divisivel entre 1 e o anterior a ele.
+    }
+    let somaPrime = primeNumbers.reduce(function(soma, valor){
+        return soma+valor
+    })
+    console.log(`prime ${primeNumbers}`)
+    console.log(somaPrime)
+    return somaPrime;
+  }
+  
+  sumPrimes(977);
