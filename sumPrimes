@@ -1,0 +1,28 @@
+function sumPrimes(num){
+    let primos = []
+    function isPrime(num){
+        const sqrt = Math.sqrt(num)// identificamos a raiz quadrada do numero
+        for (let i =2; i<=sqrt; i++){// percorremos até a raiz quadrada do numero
+            
+            if (num % i === 0) {
+                return false}// se o numero dividido por i sobrar 0, não é primo porque em um divisor. se a raiz tem um divisor é porque o numero também tem?? utiliza raiz pra diminuir os calculos?
+            
+        }
+        
+        
+        return true // retorna verdadeiro, é um numero primo.
+    }
+    let sum = 0 // variável que armazena a soma
+    for (let i=2; i<=num; i++){//percorre os numeros
+        
+        if(isPrime(i)){// se confirmado que é prime na função acima, soma os valores
+            sum += i
+        }
+
+    }
+    
+    console.log(sum)
+    return sum//retona a soma
+}
+
+sumPrimes(977)
