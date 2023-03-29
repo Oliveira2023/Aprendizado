@@ -1,0 +1,23 @@
+function sumPrimes(num){
+let isPrime = Array(num + 1).fill(true)//cria um array de booleanos, considera todos como primos
+
+isPrime[0] = false;// zero e um não sao numeros primos
+isPrime[1] = false;
+for (let i=2; i<= Math.sqrt(num); i++){// percorre até a raiz quadrada do numero
+    if (isPrime[i]){ // i não foi marcado como falso, então é primo -- todos entram aqui?
+        for (let j =i*i; j<num; j+=i)// percorre de uma forma diferente.. é o calculo para identificar os não primos
+        //o i = 2 por exemplo j=4; menor que o num(argumento) e j = j+i
+        //o isPrime(4), vai ser marcado como falso. j=6
+        //isPrime(6) é marcado como falso, j=8
+        //isPrime(8) é marcado como falso.... assim por diante
+        //Depois o mesmo com i =3, 4 , 5...
+        isPrime[j]= false//vai mudando para falso os numeros que não sao primos no array de boleanos, atenção que depois ele toma o indice como numero primo, por isso o num+1 no começo da função, porque vai usar o indice.
+        
+    }
+}
+    let res = isPrime.reduce((sum,prime,index)=> prime? sum+index : sum,0 ) //faz a soma. Aqui usa o arrey booleano(de falso e true) e if ternario pra verificar se o valor é verdadeiro. prime é o valor, se verdadeiro, soma o valor do indice, se não mantém a soma. Assim retornando a soma dos indices.
+    console.log(res)
+    return res
+}
+
+sumPrimes(977)
