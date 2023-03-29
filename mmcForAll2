@@ -1,0 +1,26 @@
+function smallestCommons(arr) {
+    // Setup
+    const [min, max] = arr.sort((a, b) => a - b);// faz a organização dos numeros para poder trabalhar na função
+    const range = Array(max - min + 1)//é o numero de divisores que tem que ter
+      .fill(0)// completa com zeros o array (deve ir mudando quando encontra o multiplo)
+      .map((_, i) => i + min);//percorre o array e retorna o index+min - vai colocar os numeros em sequencia do min para o max que é o range [1,2,3,4,5]
+    // Largest possible value for SCM
+    const upperBound = range.reduce((prod, curr) => prod * curr);//reduz os numeros a um multiplicador comum (120 no exemplo)
+    /* [1,2,3,4,5]
+    1*2 =2
+    2*3 = 6
+    6*4 = 24
+    24*5 = 120
+    */
+    // Test all multiples of 'max'
+    for (let multiple = max; multiple <= upperBound; multiple += max) {//percorre a partir do maximo até upperBound aumentando em passos do maximo, porque tem que ser divisivel por ele também e pelos outros numeros.
+      // Check if every value in range divides 'multiple'
+      const divisible = range.every((value) => multiple % value === 0);//testa se cada valor multiple "modulo" o valor (que está dentro do range), isto é dividindo o valor do multiplo por todos os numeros do range tem resto 0?
+      if (divisible) {// se for divisivel, (foi true no divisible) retorna esse numero (multiple)
+        console.log(multiple)
+        return multiple;
+      }
+    }
+  }
+  
+  smallestCommons([1, 5]);
