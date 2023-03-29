@@ -23,7 +23,8 @@ function smallestCommons(arr) {
     joga pro lcm o (multiplo-aqui é o resultado do reduce- e valor atual) por exemplo
     [1,2,3,4,5]
     1(multiplo, pegou o primeiro pq nao tem parametro inicial) e 1 que é o atual, assim
-    lcm(1,2)=> 1*2/ aqui entra o GCD(1,2) B não é =0 não então GCD(2'b','a'%'b'=1) ainda não é 0  neste momento b=0 então "a" no momento=1 por fim 1*1/1=1
+    lcm(1,2)=> 1*2/ aqui entra o GCD(1,2) B não é =0 não então GCD(2'b','a'%'b'=1) ainda não é 0  neste momento b=0 então "a" no momento=1 por fim 1*2/1=2
+    toda sequencia:
     lcm(1,2)=> 1*2/....GCD(1,2) ==2
     lcm(2,3)=> 2*3/gcd(1,3)==6
     lcm(6,4)=> 6*4/gcd(6,4)==12
