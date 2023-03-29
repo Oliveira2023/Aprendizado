@@ -1,0 +1,36 @@
+function smallestCommons(arr) {
+    // Setup
+    const [min, max] = arr.sort((a, b) => a - b);//organiza os argumentos para trabalhar com eles
+    const range = Array(max - min + 1)// cria o array com a faixa de numeros entre eles
+      .fill(0)// completa o array com zeros, vai usar o indice depois
+      .map((_, i) => i + min);//pra cada item do array cria outro com o indice+menor valor
+      /*1+0 = 1
+        1+1 = 2
+        ...[1,2,3,4,5]
+        se fosse 2 o minimo seria [2,3,4,5]
+      */
+    // GCD of two numbers
+    // https://en.wikipedia.org/wiki/Greatest_common_divisor#Euclid's_algorithm
+    const gcd = (a, b) => (b === 0) ? a : gcd(b, a % b);//encontra o MDC (Euclid's algorithm)
+    
+    // LCM of two numbers
+    // https://en.wikipedia.org/wiki/Least_common_multiple#Using_the_greatest_common_divisor
+    const lcm = (a, b) => a * b / gcd(a, b);// para encontrar o mmc
+    // LCM of multiple numbers
+    // https://en.wikipedia.org/wiki/Least_common_multiple#Other
+    let res = range.reduce((multiple, curr) => lcm(multiple, curr));/*faz a magica de encontrar o mmc, 
+    usa o reduce sobre a faixa de numeros e faz o seguinte:
+    joga pro lcm o (multiplo-aqui é o resultado do reduce- e valor atual) por exemplo
+    [1,2,3,4,5]
+    1(multiplo, pegou o primeiro pq nao tem parametro inicial) e 1 que é o atual, assim
+    lcm(1,2)=> 1*2/ aqui entra o GCD(1,2) B não é =0 não então GCD(2'b','a'%'b'=1) ainda não é 0  neste momento b=0 então "a" no momento=1 por fim 1*1/1=1
+    lcm(1,2)=> 1*2/....GCD(1,2) ==2
+    lcm(2,3)=> 2*3/gcd(1,3)==6
+    lcm(6,4)=> 6*4/gcd(6,4)==12
+    lcm(12,5)=> 12*5/gcd(12,5)===60
+    */
+   console.log(res)
+   return res
+  }
+  
+  smallestCommons([1, 5]);
