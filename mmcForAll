@@ -1,0 +1,41 @@
+function smallestCommons(arr) {
+    const [min, max] = arr.sort((a,b)=> a-b)// reorganiza o argumento de forma que fique na sequencia correta para a função.
+    const numberDivisors = max - min +1//numero de divisores. numeros entre o minimo e o maximo
+    let upperBound =1 //?
+    for (let i=min; i<=max; i++){//percorre todos os numeros entre os 2 dados como argumento. eles tem que estar organizados para poder fazer isso.
+        upperBound *= i;/* metodo para encontrar o maior numero divisivel por todos
+        1*1
+        1*2
+        2*3
+        6*4
+        24*5
+        =120*/
+    }
+    for (let multiple = max; multiple<=upperBound; multiple += max){/*percorre começando do max até o uperbound
+    nesse caso começa pelo 5 e vai até 120 que ficou no upperBound (aumenta mais ou igual ao maximo porque tem que ser divisível por ele.)
+    */
+        let divisorCount = 0
+        for (let i =min; i<=max; i++){// pra cada numero do for acima percorre do min pro maximo
+            // começa do 1 até 5 
+            if (multiple % i === 0){// 5 dividido por 1 tem resto = 0?
+                divisorCount +=1// contagem do divisor aumenta 1
+                /*
+                5/1 resto 0? sim    10/1 resto 0? sim   15/1 r 0? sim
+                5/2 resto 0? não    ....sim             ..nao
+                5/3 resto 0? não    ...não              3..sim
+                ..5/5 resto0? sim   10/5...sim          5..sim
+                count divisores = 2     ...3            ...3    e assim por diante até encontrar 5 divisores
+                */
+            }
+        }
+        if (divisorCount === numberDivisors){
+            console.log(multiple)
+            return multiple
+        }
+
+    }
+
+    return arr;
+  }
+  
+  smallestCommons([1,5]);
