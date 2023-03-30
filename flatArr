@@ -1,0 +1,16 @@
+function steamrollArray(arr){
+
+    const flattenedArray = []//crio um array vazio pra inserir com os valores extraidos do array enviado como parametro.
+    for (let i=0; i<arr.length; i++){// percorre o array de entrada
+        if (Array.isArray(arr[i])){// verifico se existe um array dentro do array
+            flattenedArray.push(...steamrollArray(arr[i]))//chama a função novamente com o array encontrado
+
+
+        }else{
+            flattenedArray.push(arr[i])//insere o valor no array 
+        }
+    }
+    console.log(flattenedArray)
+return flattenedArray
+}
+steamrollArray([1, [2], [3, [[4]]]])
