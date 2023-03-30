@@ -1,0 +1,32 @@
+function steamrollArray(arr) {
+  let arr1 = []
+  //console.log(arr[2][1])
+  //console.log(Array.isArray(arr[2]))
+ 
+  for (let i=0; i<arr.length; i++){
+    if (!Array.isArray(arr[i])){
+      arr1.push(arr[i])
+      }else{
+        deeper(arr[i])
+      }
+    }
+  function deeper(inside){
+    console.log('DEEPER')
+console.log(inside)
+      for (let i = 0; i<inside.length; i++) {
+        console.log('FOR')
+        if (!Array.isArray(inside[i])){
+          arr1.push(inside[i])
+        }else{
+          console.log('else')
+          deeper(inside[i])
+        }    
+       }
+  }
+   //console.log(arr1)
+    return arr1;
+  }
+  
+
+
+steamrollArray([1, [2], [3, [[4]]]]);
