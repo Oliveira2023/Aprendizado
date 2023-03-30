@@ -1,0 +1,17 @@
+function dropElements(arr, func) {
+ let arr1 = arr.map(elem=> elem)
+  for (let i=0; i<arr.length; i++){
+    if (!func(arr[i])){
+      console.log('dentro do if')
+      arr1.shift()
+    }else{
+console.log(arr1)
+    return arr1
+    }
+
+  }
+  
+  return arr1
+}
+
+dropElements([5,7,4,1, 2,3], function(n) {return n < 3; });
