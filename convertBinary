@@ -1,0 +1,15 @@
+function binaryAgent(str) {
+    let bigString = str.split(' ')// separa a string por cada binario contido nela
+    let iniString = [] //crio uma variável que vai receber as palavras separadas
+    console.log(parseInt(bigString[0],2))//teste para verificar a conversão do codigo binario em codigo UFT-16
+    console.log(String.fromCharCode(65))// vizualizo o charcode encontrado anteriormente
+    for (let i=0; i<bigString.length; i++){ // percorre a lista (o array) criado separadamente em bigString e em cada elemento...
+        iniString.push(String.fromCharCode(parseInt(bigString[i],2)))// aplica o fromCharCode sobre o codido e insere na iniString.
+    }
+    
+    let finalStr = iniString.join('')// junta todas as palavras
+    console.log(finalStr)
+    return finalStr; //retorna a frase completa
+  }
+  
+  binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
