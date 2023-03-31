@@ -1,0 +1,9 @@
+function truthCheck(collection, pre) {
+let cond1 = collection.every((Element)=> Element.hasOwnProperty(pre))
+let cond2 = collection.every((elem=> Boolean(elem[pre])))
+if (cond1 && cond2){
+  return true
+}
+}
+
+truthCheck([{ name: "Quincy", role: "Founder", isBot: false }, { name: "Naomi", role: "", isBot: false }, { name: "Camperbot", role: "Bot", isBot: true }], "isBot");
