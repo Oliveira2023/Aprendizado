@@ -1,0 +1,35 @@
+function binaryAgent(str) {
+    // Separate the binary code by space.
+    str = str.split(" ");// separação do binario pelos espaços
+    var power;
+    var decValue = 0;
+    var sentence = "";
+  
+    // Check each binary number from the array.
+    for (var s = 0; s < str.length; s++) {//percorre cada sequencia binario
+      // Check each bit from binary number
+      for (var t = 0; t < str[s].length; t++) {//percorre adicionalemente cada item do binario
+        // This only takes into consideration the active ones.//que são os ativos??
+        if (str[s][t] == 1) {// se a posição do numero binario for igual a 1
+          // This is quivalent to 2 ** position// isso é equivalente a posição 2
+          power = Math.pow(2, +str[s].length - t - 1);//eleva o 2 ao expoente(comprimento da str[s]-7-1)(ex:2^2-1-1= 1)
+          decValue += power;//valor decimal = power (1 no momento inicial) vai somando com a conta acima
+  
+          // Record the decimal value by adding the number to the previous one.
+        }
+      }
+  
+      // After the binary number is converted to decimal, convert it to string and store
+      sentence += String.fromCharCode(decValue);//vai concatenando a decodificação do codigo decimal 
+  
+      // Reset decimal value for next binary number.
+      decValue = 0;
+    }
+  
+    return sentence;
+  }
+  
+  // test here
+  binaryAgent(
+    "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+  );
