@@ -1,0 +1,23 @@
+function truthCheck(collection, pre) {
+    //console.log(pre)
+    console.log(Boolean(collection[0][pre]))//testando os parametros, pra saber se vai dar positivo ou negativo
+    console.log(collection[0].hasOwnProperty(pre))// testando pra saber se tem a propriedade
+    let testbol = {isBoot: true}// variavel para teste do boolean a seguir,  para verificar o comportamento
+    Boolean(testbol.isBoot)? console.log('deu positivo'): console.log('no')//teste pra analisar o comportamento
+  
+    //conslole.log(collection.length)
+    let testTruthy = 0 // variável que vai contar os que são verdadeiros na condição do if seguinte
+  for (let i=0; i<collection.length; i++){// percorre a coleçao de objetos
+  if (collection[i].hasOwnProperty && Boolean(collection[i][pre])){//se no objeto haver a propriedade e se tiver atributo então....
+  testTruthy ++//obs: foi usado o Boolean para que no caso se o conteudo for um booleano retorna verdadeiro pra true e falso para falso, senão pode retornar um falso true para falso.
+  }
+  }
+  testTruthy==collection.length? console.log('tudo True'):console.log('nem todos são true')//testa se o numero de true é igual a quantidade de objetos. se sim ok todos são verdadeiros e retorna true.
+  return testTruthy==collection.length
+  }
+  
+  truthCheck([
+    {name: "Quincy", role: "Founder", isBot: true}, 
+    {name: "Naomi", role: "", isBot: true}, 
+    {name: "Camperbot", role: "Bot", isBot: true}], 
+    "isBot");
