@@ -1,0 +1,30 @@
+function addTogether(){
+  const [first, second] =  arguments//coloco os argumentos dentro de variáveis
+  
+    if (typeof(first)!== 'number'){//se o primeiro argumento não for um numero retorna undefined
+    return undefined
+  }
+  //primeiro argumento é um numero e o segundo não está definido
+  else if(arguments.length===1){// se só tem 1 argumento... em alguns casos do exercicio já tem o segundo argumento enviado, mas não reconhece, neste caso ele é inserido nesta função.
+    
+    function addSecond(second){//cria a função que envia o segundo argumento (no caso (5)(7) por exemplo o sete é o segundo arguento)
+      if (typeof(second)!== 'number'){// se o sengundo numero não for um numero, retorna undefined
+        return undefined
+      }else{// nesse caso o argumento é um numero............quando cria uma função nada acontece com ela até que ela seja invocada
+        
+        return first+second                      //..........nesse caso ela é invocada quando é retornada do else if, quando só está 
+                                                //...........somente 1 argumento definido.
+      }/*fecha o else */
+    }/*fecha a função */
+    return addSecond// retorna a função... neste momento que é invocada a função? e envia o segundo argumento não definido a principio. aqui é o retorno do else if
+    /*chegando aqui é porque o primeiro argumento é um numero- dando sequencia no codigo */
+// aqui tem 2 arguentos mas o segundo pode não ser um numero.
+  }else if(typeof(second) !== 'number'){//se o segundo não for um numero, retorna undefined
+  return undefined
+}else{// se o segundo for um numero, retorna a soma dos 2.
+  
+  return first+second
+}
+}//chave que fecha a função
+
+addTogether(2)(5)
