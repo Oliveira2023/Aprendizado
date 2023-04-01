@@ -1,0 +1,25 @@
+function addTogether() {
+  console.log(`Argumentos ${arguments.length}`)
+  const[first, second] = arguments//crio uma constante com os argumentos 1 e 2
+  console.log([first, second])//vejo os argumentos e faço algum teste.
+  console.log(typeof second)// teste no segundo argumento.
+  if (typeof first!== "number"){//verifica se o primeiro argumento é um numero
+    console.log('if first não é numero')
+    return undefined//retorna undefined se o argumento não for um numero.
+  }
+  if(arguments.length==1){// se só tem 1 argumento 
+let sum1 = (second)=>addTogether(first, second)// mas se só tem 1 mesmo vai retornar undefined pro segundo e não sai daqui
+return sum1// tive que usar arrow function, função normal não funcionou. aparentemente retorna o mesmo resultado, mas não passa no teste.
+  }
+   var sumArgs = 0// crio a variável que armazena o resultado. poderia retorna direto
+  if (typeof second!=='number'){//verifica se o segundo argumento não é um numero
+  console.log('else, segundo não é numero')
+  return undefined// se não for retorna undefined
+  }    
+  sumArgs = first+second// realizo a soma dos 2 argumentos
+  console.log(sumArgs)
+  return sumArgs;// retorno a soma dos argumentos.
+
+}
+
+addTogether(5)(7);
