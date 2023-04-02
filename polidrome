@@ -1,0 +1,21 @@
+function palindrome(str) {
+  let filtro = /[\W_]/g
+  
+  let newStr = str
+  .replace(filtro,'')
+  .toLowerCase()
+  .split('')
+
+  let strReverse = newStr.slice()
+  strReverse.reverse()
+
+  newStr = newStr.join('')
+  strReverse = strReverse.join('')
+  console.log(newStr)
+  console.log(strReverse)
+  console.log(newStr === strReverse)
+    return newStr === strReverse;
+   
+  }
+  
+  palindrome("_ey*e");
