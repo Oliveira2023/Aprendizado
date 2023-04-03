@@ -1,0 +1,37 @@
+function convertToRoman(num) {
+    const list = {
+        1000:'M', 
+        900: 'CM',
+        500: 'D',
+        400: 'CD',
+        100: 'C',
+        90: 'XC',
+        50: 'L',
+        40: 'XL',
+        10: 'X',
+        9: 'IX',
+        5: 'V',
+        4: 'IV',
+        1: 'I'
+    }
+    let strRomanNumber =''
+    insideNum = num
+    let chaves = Object.keys(list)
+    chaves.reverse()
+
+    //console.log(chaves)
+    for (let i = 0; i<=chaves.length; i++) {
+        if (insideNum>=Number(chaves[i])){
+            
+            strRomanNumber += list[chaves[i]]
+            insideNum = insideNum-chaves[i]
+            console.log(insideNum)
+            i = i-1
+        }//else{console.log('dentro do else')}
+    }
+    //console.log(list[chaves[1]])
+    console.log(strRomanNumber)
+    return strRomanNumber;
+}
+   
+   convertToRoman(4);
