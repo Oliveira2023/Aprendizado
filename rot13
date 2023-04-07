@@ -1,0 +1,42 @@
+function rot13(str) {
+    let arr= []// crio array para inserir a letra codificada
+    //let newStr= ''//crio uma string pra inserir as letras codificadas 
+    let strSeparada = str.split(' ')// separo em palavras pelo espaço
+    for(let i= 0; i<strSeparada.length; i++){//percorre cada palavra do array
+    //console.log('for1')
+      for(let j=0; j<strSeparada[i].length; j++){//percorre cada letra da primeira palavra
+      //console.log('for2')
+        if (strSeparada[i][j].match(/[\W]/)){//se a letra for um ponto de interrogação, não alfanumerico, somente coloca ele sem conversão
+          console.log('if!?')
+        //newStr += strSeparada[i][j]
+        arr.push(strSeparada[i][j])
+        }else{//se for uma letra alfan.. faz a decodificação
+          let indice = strSeparada[i].charCodeAt(j)//descobre o codigo charcode
+          let newCode = indice+13//soma 13 pra encontrar o novo codigo
+            if (newCode>90){//mas o codigo não passar de noventa, tem que ficar entre 65 e 90
+              let resto = newCode-91;//faz a conta pra diminuir de 90
+              newCode = 65+resto// e somar com 65
+            }
+          //newStr += String.fromCharCode(newCode);//trasforma o codigo encontrado na letra correspondente e acrescenta na string
+    
+          arr.push(String.fromCharCode(newCode))//faz o mesmo processo para o array
+        }//fecha o else, passa no else porque não é um '?'por exemplo
+      }//fecha o 2 for
+      //newStr += ' '//acrescenta os espaços depois de cada palavra
+      //console.log(arr)
+      //if(arr[i]!==arr.length-1){
+        arr.push(' ')
+      
+      
+    //console.log(arr)
+    }//fecha o 1 for
+  
+  arr= arr.join('')
+  arr= arr.trim()
+  
+  //console.log(newStr)
+  console.log(arr);
+    return arr;
+  }
+  
+  rot13("SERR PBQR PNZC");
